@@ -1,0 +1,2728 @@
+[INFO 23:53:52] cooking_zoo Running command 'my_main'
+[INFO 23:53:52] cooking_zoo Started run with ID "80"
+[DEBUG 23:53:52] cooking_zoo Starting Heartbeat
+Script started
+Starting training with config: {'runner': 'episode', 'mac': 'basic_mac', 'env': 'cooking', 'common_reward': True, 'reward_scalarisation': 'sum', 'env_args': {'num_agents': 2, 'episode_limit': 1000, 'level': 'coop_test', 'meta_file': 'example', 'recipes': ['TomatoLettuceSalad', 'CarrotBanana'], 'obs_spaces': ['feature_vector', 'feature_vector'], 'agent_visualization': ['human', 'robot'], 'action_scheme': 'scheme1', 'end_condition_all_dishes': True, 'render': True, 'reward_scheme': {'recipe_reward': 1000, 'max_time_penalty': 0, 'recipe_penalty': -40, 'recipe_node_reward': 100}, 'key': 'cooking_key'}, 'batch_size_run': 1, 'test_nepisode': 20, 'test_interval': 2000, 'test_greedy': True, 'log_interval': 2000, 'runner_log_interval': 2000, 'learner_log_interval': 2000, 't_max': 30000, 'use_cuda': True, 'buffer_cpu_only': True, 'use_tensorboard': False, 'use_wandb': False, 'wandb_team': None, 'wandb_project': None, 'wandb_mode': 'offline', 'wandb_save_model': False, 'save_model': False, 'save_model_interval': 50000, 'checkpoint_path': '', 'evaluate': False, 'render': False, 'load_step': 0, 'save_replay': False, 'local_results_path': 'results', 'gamma': 0.99, 'batch_size': 1, 'buffer_size': 1000, 'lr': 0.0005, 'optim_alpha': 0.99, 'optim_eps': 1e-05, 'grad_norm_clip': 10, 'add_value_last_step': True, 'agent': 'rnn', 'hidden_dim': 64, 'obs_agent_id': True, 'obs_last_action': False, 'repeat_id': 1, 'label': 'default_label', 'hypergroup': None, 'name': 'qmix', 'n_agents': 2, 'epsilon_start': 1.0, 'epsilon_finish': 0.05, 'epsilon_anneal_time': 50000, 'target_update_interval': 200, 'action_selector': 'epsilon_greedy', 'evaluation_epsilon': 0.0, 'obs_individual_obs': False, 'standardise_returns': False, 'standardise_rewards': False, 'use_rnn': True, 'agent_output_type': 'default', 'learner': 'q_learner', 'mixer': 'qmix', 'mixing_embed_dim': 32, 'cuda_device': 0, 'double_q': True, 'target_update_interval_or_tau': 200, 'seed': 0}
+run started
+[DEBUG 23:53:52] my_main Started
+[INFO 23:53:52] my_main Experiment Parameters:
+[INFO 23:53:52] my_main 
+
+{   'action_selector': 'epsilon_greedy',
+    'add_value_last_step': True,
+    'agent': 'rnn',
+    'agent_output_type': 'default',
+    'batch_size': 1,
+    'batch_size_run': 1,
+    'buffer_cpu_only': True,
+    'buffer_size': 1000,
+    'checkpoint_path': '',
+    'common_reward': True,
+    'cuda_device': 0,
+    'double_q': True,
+    'env': 'cooking',
+    'env_args': {   'action_scheme': 'scheme1',
+                    'agent_visualization': [   'human',
+                                               'robot'],
+                    'end_condition_all_dishes': True,
+                    'episode_limit': 1000,
+                    'key': 'cooking_key',
+                    'level': 'coop_test',
+                    'meta_file': 'example',
+                    'num_agents': 2,
+                    'obs_spaces': [   'feature_vector',
+                                      'feature_vector'],
+                    'recipes': [   'TomatoLettuceSalad',
+                                   'CarrotBanana'],
+                    'render': True,
+                    'reward_scheme': {   'max_time_penalty': 0,
+                                         'recipe_node_reward': 100,
+                                         'recipe_penalty': -40,
+                                         'recipe_reward': 1000}},
+    'epsilon_anneal_time': 50000,
+    'epsilon_finish': 0.05,
+    'epsilon_start': 1.0,
+    'evaluate': False,
+    'evaluation_epsilon': 0.0,
+    'gamma': 0.99,
+    'grad_norm_clip': 10,
+    'hidden_dim': 64,
+    'hypergroup': None,
+    'label': 'default_label',
+    'learner': 'q_learner',
+    'learner_log_interval': 2000,
+    'load_step': 0,
+    'local_results_path': 'results',
+    'log_interval': 2000,
+    'lr': 0.0005,
+    'mac': 'basic_mac',
+    'mixer': 'qmix',
+    'mixing_embed_dim': 32,
+    'n_agents': 2,
+    'name': 'qmix',
+    'obs_agent_id': True,
+    'obs_individual_obs': False,
+    'obs_last_action': False,
+    'optim_alpha': 0.99,
+    'optim_eps': 1e-05,
+    'render': False,
+    'repeat_id': 1,
+    'reward_scalarisation': 'sum',
+    'runner': 'episode',
+    'runner_log_interval': 2000,
+    'save_model': False,
+    'save_model_interval': 50000,
+    'save_replay': False,
+    'seed': 0,
+    'standardise_returns': False,
+    'standardise_rewards': False,
+    't_max': 30000,
+    'target_update_interval': 200,
+    'target_update_interval_or_tau': 200,
+    'test_greedy': True,
+    'test_interval': 2000,
+    'test_nepisode': 20,
+    'use_cuda': True,
+    'use_rnn': True,
+    'use_tensorboard': False,
+    'use_wandb': False,
+    'wandb_mode': 'offline',
+    'wandb_project': None,
+    'wandb_save_model': False,
+    'wandb_team': None}
+
+/home/alexander-nassif/Desktop/cooking_zoo/newvenv/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:144: UserWarning: The `observation_spaces` dictionary is deprecated. Use the `observation_space` function instead.
+  warnings.warn(
+NUM OF AGENTS: 2
+self.communication_bits: 2
+self.obs_shape: 278
+self.obs_spaces: {'player_0': Box(-1.0, 1.0, (278,), float32), 'player_1': Box(-1.0, 1.0, (278,), float32)}
+/home/alexander-nassif/Desktop/cooking_zoo/newvenv/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:158: UserWarning: The `action_spaces` dictionary is deprecated. Use the `action_space` function instead.
+  warnings.warn(
+{'player_0': MultiDiscrete([16]), 'player_1': MultiDiscrete([16])} action_spaces
+[INFO 23:53:55] my_main Beginning training for 30000 timesteps
+/home/alexander-nassif/Desktop/cooking_zoo/newvenv/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:158: UserWarning: The `action_spaces` dictionary is deprecated. Use the `action_space` function instead.
+  warnings.warn(
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(7)}
+[INFO 23:53:55] my_main t_env: 1 / 30000
+[INFO 23:53:55] my_main Estimated time left: 10 seconds. Time passed: 0 seconds
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 1 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 1 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 2 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 2 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 3 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 3 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 4 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 4 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 5 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 5 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 6 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 6 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 7 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 7 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 8 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 8 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 9 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 9 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 10 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 10 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 11 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 11 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 12 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 12 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 13 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 13 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 14 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 14 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 15 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 15 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 16 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 16 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 17 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 17 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 18 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 18 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 19 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 19 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 1 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 1 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(7)}
+Key: n_episodes
+cur_stats[n_episodes]: 2 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 2 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 3 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 3 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 4 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 4 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Key: n_episodes
+cur_stats[n_episodes]: 5 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 5 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(0)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(0)}
+Key: n_episodes
+cur_stats[n_episodes]: 6 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 6 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Key: n_episodes
+cur_stats[n_episodes]: 7 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 7 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 8 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 8 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 9 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 9 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(7)}
+Key: n_episodes
+cur_stats[n_episodes]: 10 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 10 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 11 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 11 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(3)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(3)}
+Key: n_episodes
+cur_stats[n_episodes]: 12 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 12 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(0)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(0)}
+Key: n_episodes
+cur_stats[n_episodes]: 13 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 13 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(7)}
+Key: n_episodes
+cur_stats[n_episodes]: 14 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 14 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 15 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 15 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(4)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(4)}
+Key: n_episodes
+cur_stats[n_episodes]: 16 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 16 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(3)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(3)}
+Key: n_episodes
+cur_stats[n_episodes]: 17 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 17 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 18 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 18 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 19 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 19 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(7)}
+Key: n_episodes
+cur_stats[n_episodes]: 20 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 20 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(0)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(0)}
+Key: n_episodes
+cur_stats[n_episodes]: 21 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 21 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(7)}
+Key: n_episodes
+cur_stats[n_episodes]: 22 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 22 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(7)}
+Key: n_episodes
+cur_stats[n_episodes]: 23 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 23 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(3)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(3)}
+Key: n_episodes
+cur_stats[n_episodes]: 24 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 24 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(4)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(4)}
+Key: n_episodes
+cur_stats[n_episodes]: 25 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 25 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 26 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 26 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 27 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 27 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(2)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(2)}
+Key: n_episodes
+cur_stats[n_episodes]: 28 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 28 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Key: n_episodes
+cur_stats[n_episodes]: 29 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 29 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(7)}
+Key: n_episodes
+cur_stats[n_episodes]: 30 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 30 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Key: n_episodes
+cur_stats[n_episodes]: 31 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 31 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(5)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(5)}
+Key: n_episodes
+cur_stats[n_episodes]: 32 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 32 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(0), 'player_1': np.int64(2)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(0), 'player_1': np.int64(2)}
+Key: n_episodes
+cur_stats[n_episodes]: 33 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 33 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 34 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 34 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 35 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 35 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(3)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(3)}
+Key: n_episodes
+cur_stats[n_episodes]: 36 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 36 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 37 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 37 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 38 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 38 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(4)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(4)}
+Key: n_episodes
+cur_stats[n_episodes]: 39 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 39 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(4)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(4)}
+Key: n_episodes
+cur_stats[n_episodes]: 40 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 40 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(4)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(4)}
+Key: n_episodes
+cur_stats[n_episodes]: 41 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 41 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(3)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(3)}
+Key: n_episodes
+cur_stats[n_episodes]: 42 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 42 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 43 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 43 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Key: n_episodes
+cur_stats[n_episodes]: 44 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 44 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(2)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(2)}
+Key: n_episodes
+cur_stats[n_episodes]: 45 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 45 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(4)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(4)}
+Key: n_episodes
+cur_stats[n_episodes]: 46 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 46 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(7)}
+Key: n_episodes
+cur_stats[n_episodes]: 47 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 47 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(3)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(3)}
+Key: n_episodes
+cur_stats[n_episodes]: 48 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 48 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(7)}
+Key: n_episodes
+cur_stats[n_episodes]: 49 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 49 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(2)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(2)}
+Key: n_episodes
+cur_stats[n_episodes]: 50 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 50 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 51 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 51 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(5)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(5)}
+Key: n_episodes
+cur_stats[n_episodes]: 52 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 52 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 53 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 53 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(7)}
+Key: n_episodes
+cur_stats[n_episodes]: 54 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 54 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 55 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 55 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(7)}
+Key: n_episodes
+cur_stats[n_episodes]: 56 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 56 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 57 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 57 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 58 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 58 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(0)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(0)}
+Key: n_episodes
+cur_stats[n_episodes]: 59 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 59 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 60 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 60 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 61 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 61 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(4)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(4)}
+Key: n_episodes
+cur_stats[n_episodes]: 62 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 62 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(7)}
+Key: n_episodes
+cur_stats[n_episodes]: 63 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 63 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(5)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(5)}
+Key: n_episodes
+cur_stats[n_episodes]: 64 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 64 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(2)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(2)}
+Key: n_episodes
+cur_stats[n_episodes]: 65 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 65 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(4)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(4)}
+Key: n_episodes
+cur_stats[n_episodes]: 66 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 66 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(2)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(2)}
+Key: n_episodes
+cur_stats[n_episodes]: 67 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 67 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(0), 'player_1': np.int64(4)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(0), 'player_1': np.int64(4)}
+Key: n_episodes
+cur_stats[n_episodes]: 68 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 68 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(3)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(3)}
+Key: n_episodes
+cur_stats[n_episodes]: 69 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 69 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 70 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 70 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(7)}
+Key: n_episodes
+cur_stats[n_episodes]: 71 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 71 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 72 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 72 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(3)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(3)}
+Key: n_episodes
+cur_stats[n_episodes]: 73 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 73 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(3)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(3)}
+Key: n_episodes
+cur_stats[n_episodes]: 74 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 74 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 75 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 75 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(3)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(3)}
+Key: n_episodes
+cur_stats[n_episodes]: 76 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 76 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(7)}
+Key: n_episodes
+cur_stats[n_episodes]: 77 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 77 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 78 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 78 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 79 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 79 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(0), 'player_1': np.int64(4)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(0), 'player_1': np.int64(4)}
+Key: n_episodes
+cur_stats[n_episodes]: 80 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 80 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(2)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(2)}
+Key: n_episodes
+cur_stats[n_episodes]: 81 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 81 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 82 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 82 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Key: n_episodes
+cur_stats[n_episodes]: 83 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 83 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(5)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(5)}
+Key: n_episodes
+cur_stats[n_episodes]: 84 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 84 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(4)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(4)}
+Key: n_episodes
+cur_stats[n_episodes]: 85 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 85 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 86 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 86 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(3)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(3)}
+Key: n_episodes
+cur_stats[n_episodes]: 87 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 87 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(0)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(0)}
+Key: n_episodes
+cur_stats[n_episodes]: 88 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 88 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(5)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(5)}
+Key: n_episodes
+cur_stats[n_episodes]: 89 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 89 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 90 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 90 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Key: n_episodes
+cur_stats[n_episodes]: 91 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 91 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(2)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(2)}
+Key: n_episodes
+cur_stats[n_episodes]: 92 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 92 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(5)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(5)}
+Key: n_episodes
+cur_stats[n_episodes]: 93 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 93 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Key: n_episodes
+cur_stats[n_episodes]: 94 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 94 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 95 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 95 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 96 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 96 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 97 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 97 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 98 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 98 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(3)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(3)}
+Key: n_episodes
+cur_stats[n_episodes]: 99 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 99 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Key: n_episodes
+cur_stats[n_episodes]: 100 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 100 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(7)}
+Key: n_episodes
+cur_stats[n_episodes]: 101 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 101 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(7)}
+Key: n_episodes
+cur_stats[n_episodes]: 102 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 102 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(5)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(5)}
+Key: n_episodes
+cur_stats[n_episodes]: 103 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 103 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(4)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(4)}
+Key: n_episodes
+cur_stats[n_episodes]: 104 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 104 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(7)}
+Key: n_episodes
+cur_stats[n_episodes]: 105 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 105 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(5)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(5)}
+Key: n_episodes
+cur_stats[n_episodes]: 106 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 106 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(5)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(5)}
+Key: n_episodes
+cur_stats[n_episodes]: 107 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 107 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 108 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 108 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 109 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 109 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(4)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(4)}
+Key: n_episodes
+cur_stats[n_episodes]: 110 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 110 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Key: n_episodes
+cur_stats[n_episodes]: 111 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 111 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(7)}
+Key: n_episodes
+cur_stats[n_episodes]: 112 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 112 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(5)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(5)}
+Key: n_episodes
+cur_stats[n_episodes]: 113 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 113 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(7)}
+Key: n_episodes
+cur_stats[n_episodes]: 114 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 114 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(2)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(2)}
+Key: n_episodes
+cur_stats[n_episodes]: 115 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 115 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Key: n_episodes
+cur_stats[n_episodes]: 116 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 116 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 117 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 117 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(4)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(4)}
+Key: n_episodes
+cur_stats[n_episodes]: 118 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 118 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(0)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(0)}
+Key: n_episodes
+cur_stats[n_episodes]: 119 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 119 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 120 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 120 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Key: n_episodes
+cur_stats[n_episodes]: 121 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 121 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(7)}
+Key: n_episodes
+cur_stats[n_episodes]: 122 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 122 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(7)}
+Key: n_episodes
+cur_stats[n_episodes]: 123 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 123 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(2)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(2)}
+Key: n_episodes
+cur_stats[n_episodes]: 124 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 124 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 125 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 125 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(3)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(3)}
+Key: n_episodes
+cur_stats[n_episodes]: 126 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 126 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+Key: n_episodes
+cur_stats[n_episodes]: 127 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 127 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(2)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(2)}
+Key: n_episodes
+cur_stats[n_episodes]: 128 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 128 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Key: n_episodes
+cur_stats[n_episodes]: 129 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 129 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(0)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(0)}
+Key: n_episodes
+cur_stats[n_episodes]: 130 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 130 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(6)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(6)}
+Key: n_episodes
+cur_stats[n_episodes]: 131 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 131 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(0), 'player_1': np.int64(7)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(0), 'player_1': np.int64(7)}
+Key: n_episodes
+cur_stats[n_episodes]: 132 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 132 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}
+Unwrapping base_env...
+0 t
+Capturing frame...
+True terminated
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Key: n_episodes
+cur_stats[n_episodes]: 133 (type: <class 'int'>)
+env_info[n_episodes]: 0 (type: <class 'int'>)
+Key: ep_length
+cur_stats[ep_length]: 133 (type: <class 'int'>)
+env_info[ep_length]: 0 (type: <class 'int'>)
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(4)}
+terminated from env: {'player_0': False, 'player_1': False}
+truncated from env: {'player_0': False, 'player_1': False}
+dones: {'player_0': False, 'player_1': False}

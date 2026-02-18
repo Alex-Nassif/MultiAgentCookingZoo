@@ -1,0 +1,968 @@
+[INFO 20:51:59] cooking_zoo Running command 'my_main'
+[INFO 20:51:59] cooking_zoo Started run with ID "51"
+[DEBUG 20:51:59] cooking_zoo Starting Heartbeat
+[DEBUG 20:51:59] my_main Started
+Script started
+Starting training with config: {'runner': 'episode', 'mac': 'basic_mac', 'env': 'cooking', 'common_reward': True, 'reward_scalarisation': 'sum', 'env_args': {'num_agents': 2, 'episode_limit': 1000, 'level': 'coop_test', 'meta_file': 'example', 'recipes': ['TomatoLettuceSalad', 'CarrotBanana'], 'obs_spaces': ['feature_vector', 'feature_vector'], 'agent_visualization': ['human', 'robot'], 'action_scheme': 'scheme1', 'end_condition_all_dishes': True, 'render': True, 'reward_scheme': {'recipe_reward': 1000, 'max_time_penalty': 0, 'recipe_penalty': -40, 'recipe_node_reward': 100}, 'key': 'cooking_key'}, 'batch_size_run': 1, 'test_nepisode': 20, 'test_interval': 2000, 'test_greedy': True, 'log_interval': 2000, 'runner_log_interval': 2000, 'learner_log_interval': 2000, 't_max': 1000000, 'use_cuda': True, 'buffer_cpu_only': True, 'use_tensorboard': False, 'use_wandb': False, 'wandb_team': None, 'wandb_project': None, 'wandb_mode': 'offline', 'wandb_save_model': False, 'save_model': False, 'save_model_interval': 50000, 'checkpoint_path': '', 'evaluate': False, 'render': False, 'load_step': 0, 'save_replay': False, 'local_results_path': 'results', 'gamma': 0.99, 'batch_size': 1, 'buffer_size': 1000, 'lr': 0.0005, 'optim_alpha': 0.99, 'optim_eps': 1e-05, 'grad_norm_clip': 10, 'add_value_last_step': True, 'agent': 'rnn', 'hidden_dim': 64, 'obs_agent_id': True, 'obs_last_action': False, 'repeat_id': 1, 'label': 'default_label', 'hypergroup': None, 'name': 'qmix', 'n_agents': 2, 'epsilon_start': 1.0, 'epsilon_finish': 0.05, 'epsilon_anneal_time': 50000, 'target_update_interval': 200, 'action_selector': 'epsilon_greedy', 'evaluation_epsilon': 0.0, 'obs_individual_obs': False, 'standardise_returns': False, 'standardise_rewards': False, 'use_rnn': True, 'agent_output_type': 'default', 'learner': 'q_learner', 'mixer': 'qmix', 'mixing_embed_dim': 32, 'cuda_device': 0, 'double_q': True, 'target_update_interval_or_tau': 200, 'seed': 0}
+run started
+[INFO 20:51:59] my_main Experiment Parameters:
+[INFO 20:51:59] my_main 
+
+{   'action_selector': 'epsilon_greedy',
+    'add_value_last_step': True,
+    'agent': 'rnn',
+    'agent_output_type': 'default',
+    'batch_size': 1,
+    'batch_size_run': 1,
+    'buffer_cpu_only': True,
+    'buffer_size': 1000,
+    'checkpoint_path': '',
+    'common_reward': True,
+    'cuda_device': 0,
+    'double_q': True,
+    'env': 'cooking',
+    'env_args': {   'action_scheme': 'scheme1',
+                    'agent_visualization': [   'human',
+                                               'robot'],
+                    'end_condition_all_dishes': True,
+                    'episode_limit': 1000,
+                    'key': 'cooking_key',
+                    'level': 'coop_test',
+                    'meta_file': 'example',
+                    'num_agents': 2,
+                    'obs_spaces': [   'feature_vector',
+                                      'feature_vector'],
+                    'recipes': [   'TomatoLettuceSalad',
+                                   'CarrotBanana'],
+                    'render': True,
+                    'reward_scheme': {   'max_time_penalty': 0,
+                                         'recipe_node_reward': 100,
+                                         'recipe_penalty': -40,
+                                         'recipe_reward': 1000}},
+    'epsilon_anneal_time': 50000,
+    'epsilon_finish': 0.05,
+    'epsilon_start': 1.0,
+    'evaluate': False,
+    'evaluation_epsilon': 0.0,
+    'gamma': 0.99,
+    'grad_norm_clip': 10,
+    'hidden_dim': 64,
+    'hypergroup': None,
+    'label': 'default_label',
+    'learner': 'q_learner',
+    'learner_log_interval': 2000,
+    'load_step': 0,
+    'local_results_path': 'results',
+    'log_interval': 2000,
+    'lr': 0.0005,
+    'mac': 'basic_mac',
+    'mixer': 'qmix',
+    'mixing_embed_dim': 32,
+    'n_agents': 2,
+    'name': 'qmix',
+    'obs_agent_id': True,
+    'obs_individual_obs': False,
+    'obs_last_action': False,
+    'optim_alpha': 0.99,
+    'optim_eps': 1e-05,
+    'render': False,
+    'repeat_id': 1,
+    'reward_scalarisation': 'sum',
+    'runner': 'episode',
+    'runner_log_interval': 2000,
+    'save_model': False,
+    'save_model_interval': 50000,
+    'save_replay': False,
+    'seed': 0,
+    'standardise_returns': False,
+    'standardise_rewards': False,
+    't_max': 1000000,
+    'target_update_interval': 200,
+    'target_update_interval_or_tau': 200,
+    'test_greedy': True,
+    'test_interval': 2000,
+    'test_nepisode': 20,
+    'use_cuda': True,
+    'use_rnn': True,
+    'use_tensorboard': False,
+    'use_wandb': False,
+    'wandb_mode': 'offline',
+    'wandb_project': None,
+    'wandb_save_model': False,
+    'wandb_team': None}
+
+NUM OF AGENTS: 2
+self.communication_bits: 2
+self.obs_shape: 278
+/home/alexander-nassif/Desktop/cooking_zoo/newvenv/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:144: UserWarning: The `observation_spaces` dictionary is deprecated. Use the `observation_space` function instead.
+  warnings.warn(
+self.obs_spaces: {'player_0': Box(-1.0, 1.0, (278,), float32), 'player_1': Box(-1.0, 1.0, (278,), float32)}
+/home/alexander-nassif/Desktop/cooking_zoo/newvenv/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:158: UserWarning: The `action_spaces` dictionary is deprecated. Use the `action_space` function instead.
+  warnings.warn(
+{'player_0': MultiDiscrete([16]), 'player_1': MultiDiscrete([16])} action_spaces
+[INFO 20:52:02] my_main Beginning training for 1000000 timesteps
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(7)}
+/home/alexander-nassif/Desktop/cooking_zoo/newvenv/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:158: UserWarning: The `action_spaces` dictionary is deprecated. Use the `action_space` function instead.
+  warnings.warn(
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(7)}
+[INFO 20:52:02] my_main t_env: 1 / 1000000
+[INFO 20:52:02] my_main Estimated time left: 5 minutes, 24 seconds. Time passed: 0 seconds
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(0)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(0)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(3)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(3)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(0)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(0)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(3)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(3)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(0)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(0)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(3)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(3)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(2)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(2)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(0), 'player_1': np.int64(2)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(0), 'player_1': np.int64(2)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(3)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(3)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(3)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(3)}
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(2)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(2)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(3)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(3)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(2)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(2)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(0)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(0)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(2)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(2)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(2)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(2)}
+Action dict: {'player_0': np.int64(0), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(0), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(3)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(3)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(3)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(3)}
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(3)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(3)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(3)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(3)}
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(0), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(0), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(2)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(2)}
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(3)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(3)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(0)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(0)}
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(2)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(2)}
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(3)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(3)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(2)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(2)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(0)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(0)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(2)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(2)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(3)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(3)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(2)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(2)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(0)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(0)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(0), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(0), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(2)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(2)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(3)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(3)}
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(3)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(3)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(3)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(3)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(2)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(2)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(3)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(3)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(0)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(0)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(3)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(3)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(0), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(0), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(1)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(1)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(2)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(2)}
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(5), 'player_1': np.int64(5)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(5), 'player_1': np.int64(5)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(3)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(3)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(2)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(2)}
+Action dict: {'player_0': np.int64(3), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(3), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(6), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(6), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(3)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(3)}
+Action dict: {'player_0': np.int64(4), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(4), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(7)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(7)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(4)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(4)}
+Action dict: {'player_0': np.int64(1), 'player_1': np.int64(3)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(1), 'player_1': np.int64(3)}
+Action dict: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(2), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(6)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(6)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(0)}
+Rewards 0.0
+Rewards, defaultdict(<class 'int'>, {'player_0': np.float64(0.0), 'player_1': np.float64(0.0)})
+Actions: {'player_0': np.int64(7), 'player_1': np.int64(0)}
+Action dict: {'player_0': np.int64(7), 'player_1': np.int64(7)}
